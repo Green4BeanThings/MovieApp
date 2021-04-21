@@ -11,6 +11,8 @@ struct ActorListScreen: View {
     
     @State private var isPresented: Bool = false
     
+    @StateObject private var actorListVM = ActorListViewModel()
+    
     let movie: MovieViewModel
     
     var body: some View {
@@ -18,13 +20,13 @@ struct ActorListScreen: View {
             List {
             
                 Section(header: Text("Actors")) {
-                    ForEach(0...10, id: \.self) { index in
+                    ForEach(actorListVM.actors, id: \.actorId) { actor in
                         
                         HStack {
                             NavigationLink(
-                                destination: Text("\(index)"),
+                                destination: Text(actor.name),
                                 label: {
-                                    Text("Actor Name")
+                                    Text(actor.name)
                                         .foregroundColor(.black)
                                 })
                             Spacer()
@@ -39,10 +41,10 @@ struct ActorListScreen: View {
             
         
         .onAppear(perform: {
-            
+            actorListVM.getActorsByMovie(vm: movie)
         })
         .sheet(isPresented: $isPresented, onDismiss: {
-            
+            actorListVM.getActorsByMovie(vm: movie)
         }, content: {
             AddActorScreen(movie: movie)
         })
