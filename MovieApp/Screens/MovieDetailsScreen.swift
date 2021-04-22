@@ -1,5 +1,5 @@
 //
-//  MovieDetailScreen.swift
+//  MovieDetailsScreen.swift
 //  MovieApp
 //
 //  Created by Mohammad Azam on 3/11/21.
@@ -29,7 +29,7 @@ extension MovieDetailsRoutes {
     }
 }
 
-struct MovieDetailScreen: View {
+struct MovieDetailsScreen: View {
     
     let movie: MovieViewModel
     
@@ -56,7 +56,7 @@ struct MovieDetailScreen: View {
 struct MovieDetailScreen_Previews: PreviewProvider {
     static var previews: some View {
         
-        MovieDetailScreen(movie: MovieViewModel(movie: Movie(context: CoreDataManager.shared.viewContext)))
+        MovieDetailsScreen(movie: MovieViewModel(movie: Movie(context: CoreDataManager.shared.viewContext)))
             .embedInNavigationView()
     }
 }

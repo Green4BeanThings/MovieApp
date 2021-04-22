@@ -33,6 +33,8 @@ struct ActorViewModel {
         return actor.name ?? ""
     }
     
-    
+    var movies: [MovieViewModel] {
+        return Movie.byActorName(name: name).map(MovieViewModel.init)
+    }
     
 }

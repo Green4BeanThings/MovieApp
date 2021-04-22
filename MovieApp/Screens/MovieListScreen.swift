@@ -27,7 +27,7 @@ struct MovieListScreen: View {
             
             ForEach(movieListVM.movies, id: \.movieId) { movie in
                 NavigationLink(
-                    destination: MovieDetailScreen(movie: movie),
+                    destination: MovieDetailsScreen(movie: movie),
                     label: {
                         MovieCell(movie: movie)
                     })

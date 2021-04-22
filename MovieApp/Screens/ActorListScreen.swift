@@ -24,7 +24,7 @@ struct ActorListScreen: View {
                         
                         HStack {
                             NavigationLink(
-                                destination: Text(actor.name),
+                                destination: ActorDetailsScreen(actor: actor),
                                 label: {
                                     Text(actor.name)
                                         .foregroundColor(.black)
@@ -48,7 +48,7 @@ struct ActorListScreen: View {
         }, content: {
             AddActorScreen(movie: movie)
         })
-        .navigationTitle("Movie Title")
+            .navigationTitle(movie.title)
         .navigationBarItems(trailing: Button(action: {
             isPresented = true
         }, label: {
